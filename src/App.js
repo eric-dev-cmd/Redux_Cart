@@ -1,25 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import { Component } from "react";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import ProductsContainer from "./containers/ProductsContainer";
+import Cart from "./components/Cart";
+import Message from "./components/Message";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  onHandleClick() {
+    console.log("clicked!");
+  }
+  render() {
+    return (
+      <div className="hidden-sn animated deep-purple-skin">
+        {/* Header */}
+        <Header />
+        {/* Header */}
+
+        <main id="mainContainer">
+          <div className="container">
+            <section className="section">
+              <h1 className="section-heading">List Product</h1>
+
+              {/* Products */}
+              <ProductsContainer />
+              {/* Products */}
+            </section>
+            {/* Message */}
+            <Message />
+            {/* Message */}
+
+            {/* Cart */}
+            <Cart />
+            {/* Cart */}
+          </div>
+        </main>
+
+        {/* Footer */}
+        <Footer />
+        {/* Footer */}
+      </div>
+    );
+  }
 }
 
 export default App;
