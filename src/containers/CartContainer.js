@@ -1,14 +1,25 @@
 import { Component } from "react";
 import { connect } from "react-redux";
-
+import * as Message from "./../constants/Message";
+import Cart from "./../components/Cart";
 import PropTypes from "prop-types";
+import CartItem from "../components/CartItem";
 
 class CartContainer extends Component {
   render() {
     var { cart } = this.props;
     console.log(cart);
-    return <div></div>;
+    return <Cart>{this.showCart(cart)}</Cart>;
   }
+  showCart = (cart) => {
+    var result = Message.MSG_CART_EMPTY;
+    if (cart.length > 0) {
+      result = cart.map((item, index) => {
+        return <CartItem index={index} key={index} item={item}></CartItem>;
+      });
+    }
+    return result;
+  };
 }
 CartContainer.propTypes = {
   cart: PropTypes.arrayOf(

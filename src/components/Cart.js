@@ -6,6 +6,7 @@ class Cart extends Component {
     console.log("clicked!");
   }
   render() {
+    var { children } = this.props;
     return (
       <div>
         <section className="section">
@@ -22,7 +23,7 @@ class Cart extends Component {
                 </tr>
               </thead>
               <tbody>
-                <CartItem />
+                {children}
 
                 <CartResult />
               </tbody>
