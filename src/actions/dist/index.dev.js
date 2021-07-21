@@ -5,7 +5,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.actChangeMessage = exports.actAddToCart = void 0;
+exports.actDeleteProductInCart = exports.actChangeMessage = exports.actAddToCart = void 0;
 
 var types = _interopRequireWildcard(require("./../constants/ActionTypes"));
 
@@ -31,3 +31,12 @@ var actChangeMessage = function actChangeMessage(message) {
 };
 
 exports.actChangeMessage = actChangeMessage;
+
+var actDeleteProductInCart = function actDeleteProductInCart(product) {
+  return {
+    type: types.DELETE_PRODUCT_IN_CART,
+    product: product
+  };
+};
+
+exports.actDeleteProductInCart = actDeleteProductInCart;

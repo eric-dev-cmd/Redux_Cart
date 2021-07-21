@@ -77,6 +77,16 @@ var cart = function cart() {
       localStorage.setItem("CART", JSON.stringify(state));
       return _toConsumableArray(state);
 
+    case types.DELETE_PRODUCT_IN_CART:
+      index = findProductInCart(state, product);
+
+      if (index !== -1) {
+        state.splice(index, 1);
+      }
+
+      localStorage.setItem("CART", JSON.stringify(state));
+      return _toConsumableArray(state);
+
     default:
       return _toConsumableArray(state);
   }

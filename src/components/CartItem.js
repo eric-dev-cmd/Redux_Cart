@@ -1,4 +1,5 @@
 import { Component } from "react";
+import * as Message from "./../constants/Message";
 class CartItem extends Component {
   onHandleClick() {
     console.log("clicked!");
@@ -48,6 +49,7 @@ class CartItem extends Component {
             data-placement="top"
             title=""
             data-original-title="Remove item"
+            onClick={() => this.onDeleteProduct(item.product)}
           >
             X
           </button>
@@ -55,6 +57,11 @@ class CartItem extends Component {
       </tr>
     );
   }
+  onDeleteProduct = (product) => {
+    var { onDeleteProduct, onChangeMessage } = this.props;
+    onDeleteProduct(product);
+    onChangeMessage(Message.MSG_DELETE_PRODUCT_IN_CART_SUCCESS);
+  };
   subTotal = (price, quantity) => {
     return price * quantity;
   };
