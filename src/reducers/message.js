@@ -6,7 +6,7 @@ const message = (state = initialState, action) => {
   switch (action.type) {
     case types.CHANGE_MESSAGE:
       console.log(action);
-      return state;
+      return action.message;
     default:
       return [...state];
   }

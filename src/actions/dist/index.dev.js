@@ -23,9 +23,10 @@ var actAddToCart = function actAddToCart(product, quantity) {
 
 exports.actAddToCart = actAddToCart;
 
-var actChangeMessage = function actChangeMessage() {
+var actChangeMessage = function actChangeMessage(message) {
   return {
-    type: types.CHANGE_MESSAGE
+    type: types.CHANGE_MESSAGE,
+    message: message
   };
 };
 

@@ -12,7 +12,7 @@ class ProductsContainer extends Component {
   }
   showProduct(products) {
     var result = null;
-    var { onAddToCart } = this.props;
+    var { onAddToCart, onChangeMessage } = this.props;
     // console.log(products.length > 0);
     if (products.length > 0) {
       result = products.map((product, index) => {
@@ -21,6 +21,7 @@ class ProductsContainer extends Component {
             key={index}
             product={product}
             onAddToCart={onAddToCart}
+            onChangeMessage={onChangeMessage}
           ></Product>
         );
       });
@@ -40,6 +41,7 @@ ProductsContainer.propTypes = {
       rating: PropTypes.number.isRequired,
     })
   ).isRequired,
+  onChangeMessage: PropTypes.func.isRequired,
 };
 const mapStateToProps = (state) => {
   return {
@@ -50,6 +52,9 @@ const mapDispatchToProps = (dispatch, props) => {
   return {
     onAddToCart: (product) => {
       dispatch(actions.actAddToCart(product, 1));
+    },
+    onChangeMessage: (message) => {
+      dispatch(actions.actChangeMessage(message));
     },
   };
 };

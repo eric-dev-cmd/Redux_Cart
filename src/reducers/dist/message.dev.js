@@ -32,7 +32,7 @@ var message = function message() {
   switch (action.type) {
     case types.CHANGE_MESSAGE:
       console.log(action);
-      return state;
+      return action.message;
 
     default:
       return _toConsumableArray(state);
