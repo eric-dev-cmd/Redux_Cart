@@ -4,12 +4,17 @@ import * as Message from "./../constants/Message";
 import Cart from "./../components/Cart";
 import PropTypes from "prop-types";
 import CartItem from "../components/CartItem";
+import CartResult from "../components/CartResult";
 
 class CartContainer extends Component {
   render() {
     var { cart } = this.props;
-    console.log(cart);
-    return <Cart>{this.showCart(cart)}</Cart>;
+    return (
+      <Cart>
+        {this.showCart(cart)}
+        {this.showTotalAmount(cart)}
+      </Cart>
+    );
   }
   showCart = (cart) => {
     var result = Message.MSG_CART_EMPTY;
@@ -17,6 +22,14 @@ class CartContainer extends Component {
       result = cart.map((item, index) => {
         return <CartItem index={index} key={index} item={item}></CartItem>;
       });
+    }
+    return result;
+  };
+  showTotalAmount = (cart) => {
+    var result = null;
+    if (cart.length > 0) {
+      result = <CartResult cart={cart} />;
+      return result;
     }
     return result;
   };

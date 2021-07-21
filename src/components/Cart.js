@@ -22,11 +22,7 @@ class Cart extends Component {
                   <th></th>
                 </tr>
               </thead>
-              <tbody>
-                {children}
-
-                <CartResult />
-              </tbody>
+              <tbody>{children}</tbody>
             </table>
           </div>
         </section>
