@@ -33,6 +33,7 @@ class Product extends Component {
                   data-toggle="tooltip"
                   data-placement="top"
                   data-original-title="Add to Cart"
+                  onClick={() => this.onAddToCart(product)}
                 >
                   <i className="fa fa-shopping-cart"></i>
                 </a>
@@ -43,6 +44,10 @@ class Product extends Component {
       </div>
     );
   }
+  onAddToCart = (product) => {
+    var { onAddToCart } = this.props;
+    onAddToCart(product);
+  };
   showRatings(rating) {
     var result = [];
     for (var i = 1; i <= rating; i++) {
