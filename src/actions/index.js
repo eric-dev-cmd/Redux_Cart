@@ -6,3 +6,8 @@ export const actAddToCart = (product, quantity) => {
     quantity,
   };
 };
+export const actChangeMessage = () => {
+  return {
+    type: types.CHANGE_MESSAGE,
+  };
+};

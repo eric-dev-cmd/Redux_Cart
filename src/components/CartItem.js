@@ -23,7 +23,11 @@ class CartItem extends Component {
         <td>{item.product.price}$</td>
         <td className="center-on-small-only">
           <span className="qty">{item.quantity} </span>
-          <div className="btn-group radio-group" data-toggle="buttons">
+          <div
+            className="btn-group radio-group"
+            style={{ marginLeft: "12px" }}
+            data-toggle="buttons"
+          >
             <label
               className="btn btn-sm btn-primary
                                                 btn-rounded waves-effect waves-light"
