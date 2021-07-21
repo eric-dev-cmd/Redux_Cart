@@ -1,0 +1,11 @@
+[33mcommit 3d2cd3a7bd888343bef823923ebcb2cd63f86047[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: zunggzing <hello.trungvinh@gmail.com>
+Date:   Tue Jul 20 19:48:07 2021 +0700
+
+    Complete the function of fetching data from the store and cchecking the data of each props
+
+[33mcommit 93ada741f634273db122ca96f1542df4edb0334f[m
+Author: zunggzing <hello.trungvinh@gmail.com>
+Date:   Sat Jul 17 17:45:12 2021 +0700
+
+    first commit

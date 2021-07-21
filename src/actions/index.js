@@ -1,6 +1,8 @@
 import * as types from "./../constants/ActionTypes";
-export const LIST_ALL = () => {
+export const actAddToCart = (product, quantity) => {
   return {
-    type: types.LIST_ALL,
+    type: types.ADD_TO_CART,
+    product,
+    quantity,
   };
 };
