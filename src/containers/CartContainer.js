@@ -18,7 +18,8 @@ class CartContainer extends Component {
     );
   }
   showCart = (cart) => {
-    var { onDeleteProduct, onChangeMessage } = this.props;
+    var { onDeleteProduct, onChangeMessage, onUpdateProductInCart } =
+      this.props;
     var result = (
       <tr>
         <td>{Message.MSG_CART_EMPTY}</td>
@@ -33,6 +34,7 @@ class CartContainer extends Component {
             item={item}
             onDeleteProduct={onDeleteProduct}
             onChangeMessage={onChangeMessage}
+            onUpdateProductInCart={onUpdateProductInCart}
           ></CartItem>
         );
       });
@@ -77,6 +79,9 @@ const mapDispatchToProps = (dispatch, props) => {
     },
     onChangeMessage: (message) => {
       dispatch(actions.actChangeMessage(message));
+    },
+    onUpdateProductInCart: (product, quantity) => {
+      dispatch(actions.actUpdateProductInCart(product, quantity));
     },
   };
 };

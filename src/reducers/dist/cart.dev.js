@@ -87,6 +87,17 @@ var cart = function cart() {
       localStorage.setItem("CART", JSON.stringify(state));
       return _toConsumableArray(state);
 
+    case types.UPDATE_PRODUCT_IN_CART:
+      console.log(action);
+      index = findProductInCart(state, product);
+
+      if (index !== -1) {
+        state[index].quantity = quantity;
+      }
+
+      localStorage.setItem("CART", JSON.stringify(state));
+      return _toConsumableArray(state);
+
     default:
       return _toConsumableArray(state);
   }

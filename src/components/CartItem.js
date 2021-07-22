@@ -1,12 +1,15 @@
 import { Component } from "react";
 import * as Message from "./../constants/Message";
 class CartItem extends Component {
-  onHandleClick() {
-    console.log("clicked!");
+  constructor(props) {
+    super(props);
+    this.state = {
+      quantity: 1,
+    };
   }
   render() {
     var { item } = this.props;
-    // console.log(item);
+    var { quantity } = this.state;
     return (
       <tr>
         <th scope="row">
@@ -23,19 +26,27 @@ class CartItem extends Component {
         </td>
         <td>{item.product.price}$</td>
         <td className="center-on-small-only">
-          <span className="qty">{item.quantity} </span>
+          <span className="qty">{quantity} </span>
           <div
             className="btn-group radio-group"
             style={{ marginLeft: "12px" }}
             data-toggle="buttons"
           >
             <label
+              onClick={() =>
+                this.onUpdateQuantity(item.product, item.quantity - 1)
+              }
               className="btn btn-sm btn-primary
                                                 btn-rounded waves-effect waves-light"
             >
               <a>—</a>
             </label>
-            <label className="btn btn-sm btn-primary aboutbtn-rounded waves-effect waves-light">
+            <label
+              onClick={() =>
+                this.onUpdateQuantity(item.product, item.quantity + 1)
+              }
+              className="btn btn-sm btn-primary aboutbtn-rounded waves-effect waves-light"
+            >
               <a>+</a>
             </label>
           </div>
@@ -57,6 +68,16 @@ class CartItem extends Component {
       </tr>
     );
   }
+  onUpdateQuantity = (product, quantity) => {
+    var { onUpdateProductInCart } = this.props;
+    if (quantity > 0) {
+      this.setState({
+        quantity: quantity,
+      });
+      console.log(quantity);
+      onUpdateProductInCart(product, quantity);
+    }
+  };
   onDeleteProduct = (product) => {
     var { onDeleteProduct, onChangeMessage } = this.props;
     onDeleteProduct(product);
