@@ -10,8 +10,10 @@ class MessageContainer extends Component {
   }
 }
 MessageContainer.propTypes = {
-  message: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+  // message: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+  message: PropTypes.array.isRequired,
 };
+
 const mapStateToProps = (state) => {
   return {
     message: state.message,

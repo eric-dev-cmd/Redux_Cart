@@ -33,8 +33,8 @@ class CartContainer extends Component {
             key={index}
             item={item}
             onDeleteProduct={onDeleteProduct}
-            onChangeMessage={onChangeMessage}
             onUpdateProductInCart={onUpdateProductInCart}
+            onChangeMessage={onChangeMessage}
           ></CartItem>
         );
       });
@@ -65,6 +65,9 @@ CartContainer.propTypes = {
       quantity: PropTypes.number.isRequired,
     })
   ).isRequired,
+  onChangeMessage: PropTypes.func.isRequired,
+  onDeleteProduct: PropTypes.func.isRequired,
+  onUpdateProductInCart: PropTypes.func.isRequired,
 };
 const mapStateToProps = (state) => {
   return {
